@@ -1,12 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  // content: [
+  //   './pages/**/*.{js,jsx}',
+  //   './components/**/*.{js,jsx}',
+  //   './app/**/*.{js,jsx}',
+  //   './src/**/*.{js,jsx}',
+  // ]
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
-  ],
+    './@/**/*.{js,jsx}', // <- this was the issue HERE which was causing the trouble of tailwind break.
+    ],
   prefix: "",
   theme: {
     container: {
@@ -24,8 +30,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          // DEFAULT: "hsl(var(--primary))",
-          DEFAULT: "#4845D2",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
